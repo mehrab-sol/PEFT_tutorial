@@ -6,6 +6,7 @@ from trl import SFTTrainer, SFTConfig
 
 checkpoint = "HuggingFaceTB/SmolLM2-135M-Instruct"
 
+
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
 if tokenizer.pad_token is None:
@@ -222,6 +223,8 @@ trainer = SFTTrainer(
     args = training_args,
     processing_class = tokenizer,
 )
+
+
 
 
 trainer.model.save_pretrained("./output/final")
